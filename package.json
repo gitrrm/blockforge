@@ -1,0 +1,16 @@
+{
+  "name": "blockforge",
+  "version": "1.0.0",
+  "description": "A reusable, accessible, and performance-focused WordPress Gutenberg block toolkit built with React.",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^35.0.0"
+  }
+}
