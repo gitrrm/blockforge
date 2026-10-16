@@ -1,37 +1,46 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, TextControl } from '@wordpress/components';
+import {
+    InspectorControls,
+    useBlockProps,
+} from '@wordpress/block-editor';
+import {
+    PanelBody,
+    TextControl,
+} from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
 registerBlockType( 'blockforge/hello', {
-    title: 'Hello',
-    edit: ( { attributes, setAttributes }) => {
+    title: __( 'Hello', 'blockforge' ),
+
+    edit: ( { attributes, setAttributes } ) => {
         const blockProps = useBlockProps();
 
         return (
             <>
                 <InspectorControls>
-                    <PanelBody title="BlockForge Hello Message Settings">
-                    <TextControl
-                        label="Message"
-                        value={ attributes.message }
-                        onChange={ ( message ) => setAttributes( { message } ) }
-                    />
-                </PanelBody>
+                    <PanelBody title={ __( 'BlockForge Hello Message Settings', 'blockforge' ) }
+                    >
+                        <TextControl
+                            label={ __( 'Message', 'blockforge' ) }
+                            value={ attributes.message }
+                            onChange={ ( message ) => setAttributes( { message } ) }
+                        />
+                    </PanelBody>
                 </InspectorControls>
 
-                <p>
-                    { attributes.message}
+                <p { ...blockProps }>
+                    { attributes.message }
                 </p>
             </>
         );
     },
-    save: () => {
-        
+
+    save: ( { attributes } ) => {
         const blockProps = useBlockProps.save();
 
         return (
-            <p{ ...blockProps }>
-                Hello from BlockForge Frontend!
+            <p { ...blockProps }>
+                { attributes.message }
             </p>
         );
     },

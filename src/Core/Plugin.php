@@ -11,9 +11,7 @@ class Plugin {
         $this->block_registry = new BlockRegistry();
     }
 
-    public function register_hooks() {
-        add_action('init', [$this->block_registry, 'register']);
+    public function register_hooks(): void {
+        add_action( 'init', [ $this->block_registry, 'register' ] );
     }
-
-    
 }

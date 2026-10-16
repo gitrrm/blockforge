@@ -1,8 +1,10 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "blockforge/hello",
   "title": "Hello",
   "category": "text",
+  "textdomain": "blockforge",
   "editorScript": "file:./index.js",
   "attributes": {
     "message": {
