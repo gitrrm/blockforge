@@ -1,15 +1,21 @@
+
 {
   "name": "blockforge",
-  "version": "1.0.0",
-  "description": "A reusable, accessible, and performance-focused WordPress Gutenberg block toolkit built with React.",
+  "version": "0.1.0",
+  "description": "A reusable, accessible, and performance-focused WordPress Gutenberg block toolkit.",
   "main": "index.js",
   "scripts": {
     "build": "wp-scripts build",
-    "start": "wp-scripts start"
+    "start": "wp-scripts start",
+    "plugin-zip": "npm run build && rm -rf dist/package && rm -f dist/blockforge-0.1.0.zip && mkdir -p dist/package/blockforge && cp blockforge.php readme.txt LICENSE dist/package/blockforge/ && cp -R src build dist/package/blockforge/ && (cd dist/package && zip -r ../blockforge-0.1.0.zip blockforge) && rm -rf dist/package"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "wordpress",
+    "gutenberg",
+    "blocks"
+  ],
+  "author": "Rashmi Ranjan Muduli",
+  "license": "GPL-2.0-or-later",
   "devDependencies": {
     "@wordpress/scripts": "^35.0.0"
   }
